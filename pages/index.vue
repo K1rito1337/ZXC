@@ -3,9 +3,9 @@
  text-white flex flex-col items-center justify-center p-6">
     
     <!-- Заголовок -->
-    <h1 class="text-5xl font-extrabold mb-4 animate-pulse">
-      𓆩ZXC COMPANY𓆪
-    </h1>
+   <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 animate-pulse text-center">
+  𓆩ZXC COMPANY𓆪
+</h1>
     <p class="text-lg text-gray-300 mb-8 text-center max-w-xl">
       𝐖𝐄𝐋𝐂𝐎𝐌𝐄
     </p>

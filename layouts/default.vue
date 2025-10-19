@@ -110,7 +110,7 @@
         <a href="https://web.telegram.org"><img src="/telegram.png" class="w-12 h-12"></a>
         <a href="https://www.instagram.com"><img src="/instagram.png" class="w-12 h-12"></a>
       </div>
-      <div class="text-xs text-center text-gray-400">© 2025 Your Site</div>
+      <div class="text-xs text-center text-gray-400">© 2025 ZXC1337</div>
     </footer>
   </div>
 </template>
