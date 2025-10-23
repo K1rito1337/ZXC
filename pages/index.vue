@@ -1,46 +1,36 @@
 <template>
   <div class="min-h-screen w-full bg-black text-white flex flex-col items-center justify-center p-6">
     
-    
+    <!-- Заголовок -->
     <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 animate-pulse text-center">
       𓆩ZXC COMPANY𓆪
     </h1>
-    <p class="text-lg text-gray-300 mb-8 text-center max-w-xl tracking-wide">
-      𝐌𝐄𝐄𝐓 𝐎𝐔𝐑 𝐓𝐄𝐀𝐌
+    <p class="text-lg text-gray-300 mb-8 text-center max-w-xl">
+      𝐖𝐄𝐋𝐂𝐎𝐌𝐄
     </p>
 
-    
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <div
-        v-for="(pic, index) in pics"
-        :key="index"
-        class="flex flex-col items-center bg-gradient-to-b from-gray-800 to-gray-900 p-4 rounded-2xl shadow-lg transform hover:scale-105 hover:rotate-1 transition-all duration-500 ease-in-out border border-gray-700 hover:border-purple-500"
-      >
-        <img
-          :src="pic.image"
-          :alt="pic.name"
-          class="w-48 h-48 rounded-xl mb-4 shadow-md hover:shadow-purple-500/50 transition-all duration-500"
-        />
-        <p class="text-xl font-semibold text-white">{{ pic.name }}</p>
-      </div>
+    <!-- GIF блок -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <img 
+        src="/j.gif" 
+        alt="Animation 1" 
+        class="w-48 h-48 rounded-xl shadow-lg hover:scale-110 hover:rotate-3 transition-transform duration-500 ease-in-out"
+      />
+      <img 
+        src="/k.gif" 
+        alt="Animation 2" 
+        class="w-48 h-48 rounded-xl shadow-lg hover:scale-110 hover:-rotate-3 transition-transform duration-500 ease-in-out"
+      />
+      <img 
+        src="/r.gif" 
+        alt="Animation 3" 
+        class="w-48 h-48 rounded-xl shadow-lg hover:scale-110 hover:rotate-1 transition-transform duration-500 ease-in-out"
+      />
     </div>
+
   </div>
 </template>
 
-<script setup lang="ts">
-import { reactive } from 'vue'
-
-interface stkimg {
-  name: string
-  image: string
-}
-
-const pics = reactive<stkimg[]>([
-  { name: 'Ghoul', image: '/zxc.png' },
-  { name: 'Mirai', image: '/mirai.png' },
-  { name: 'Ken', image: '/ken.png' }
-])
-</script>
 
 
 
