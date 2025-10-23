@@ -42,17 +42,16 @@ interface stkimg {
 
 const pic1 = reactive<stkimg>({
   name: 'Ghoul',
-  image: '/zxc.png' // лежит в public
+  image: '/zxc.gif'
 })
 
 const pic2 = reactive<stkimg>({
   name: 'Mirai',
-  image: '/mirai.png' // лежит в public
+  image: '/mirai.gif'
 })
 
 const pic3 = reactive<stkimg>({
   name: 'Ken',
-  image: '/ken.png' // лежит в public
+  image: '/ken.gif'
 })
 </script>
-
