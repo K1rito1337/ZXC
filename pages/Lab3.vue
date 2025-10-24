@@ -5,7 +5,7 @@
       𓆩ZXC COMPANY𓆪
     </h1>
     <p class="text-lg text-gray-400 font-semibold mb-10 tracking-widest text-center">
-      TEAM MEMBERS
+      Member of the Cleaners' Team Akuta
     </p>
 
     <!-- Радиокнопки -->
@@ -79,38 +79,38 @@ interface Member {
 const members = reactive<Member[]>([
   {
     id: 1,
-    name: 'Ghoul',
-    image: '/zxc.gif',
+    name: 'Rudo',
+    image: '/chara_list_1.png',
     team: 'Main',
     description: 'Silent leader. Cold, calm, and tactical — always stays in control.'
   },
   {
     id: 2,
-    name: 'Mirai',
-    image: '/mirai.gif',
+    name: 'Enjin',
+    image: '/chara_list_2.png',
     team: 'Art',
     description: 'Creative mind who turns chaos into style and vision.'
   },
   {
     id: 3,
-    name: 'Ken',
-    image: '/ken.gif',
+    name: 'Zanka',
+    image: '/chara_list_3.png',
     team: 'Tech',
     description: 'Code machine. Writes scripts faster than lightning.'
   },
   {
     id: 4,
-    name: 'Rei',
-    image: '/rei.gif',
+    name: 'Riyo',
+    image: '/chara_list_4.png',
     team: 'Main',
     description: 'Analyst and strategist — always sees two steps ahead.'
   },
   {
     id: 5,
-    name: 'Luna',
-    image: '/luna.gif',
+    name: 'Corvus',
+    image: '/chara_list_19.png',
     team: 'Media',
-    description: 'Voice of ZXC Company. Calm energy, strong presence.'
+    description: 'Calm energy, strong presence.'
   }
 ])
 
