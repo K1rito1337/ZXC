@@ -1,64 +1,66 @@
 <template>
-  <div class="mx-auto bg-black min-h-screen text-white">
+  <div class="mx-auto bg-black min-h-screen text-white flex flex-col items-center py-10 px-6">
     <!-- Заголовок -->
-    <div class="text-center pt-10">
-      <h1 class="text-4xl sm:text-5xl font-extrabold mb-3 animate-pulse">𓆩ZXC COMPANY𓆪</h1>
-      <p class="text-lg text-gray-400 mb-6">𝐓𝐄𝐀𝐌 𝐌𝐄𝐌𝐁𝐄𝐑𝐒</p>
-    </div>
+    <h1 class="text-5xl font-extrabold mb-2 text-center tracking-wide">
+      𓆩ZXC COMPANY𓆪
+    </h1>
+    <p class="text-lg text-gray-400 font-semibold mb-10 tracking-widest text-center">
+      TEAM MEMBERS
+    </p>
 
-    <!-- Радиокнопки фильтра -->
-    <div class="mb-8 mx-5 p-0.5 rounded-full bg-gray-900 shadow-lg">
+    <!-- Радиокнопки -->
+    <div class="mb-10 mx-5 p-2 rounded-full bg-gray-900 shadow-lg">
       <div class="flex flex-wrap justify-center gap-4">
         <label
-          v-for="filter in filters"
-          :key="filter"
+          v-for="team in teams"
+          :key="team"
           class="flex flex-row items-center space-x-2 cursor-pointer select-none rounded-lg transition-all duration-300"
           role="button"
           :class="{
-            'bg-purple-700 shadow-md pl-3 pr-5 my-1 py-3': selectedFilter === filter,
-            'hover:bg-gray-700 hover:shadow-md pl-3 pr-5 my-1 py-3': selectedFilter !== filter
+            'bg-purple-700 shadow-md pl-4 pr-6 py-2': selectedTeam === team,
+            'hover:bg-gray-700 hover:shadow-md pl-4 pr-6 py-2': selectedTeam !== team
           }"
         >
-          <input
-            type="radio"
-            v-model="selectedFilter"
-            :value="filter"
-            class="hidden"
-          />
-          <span class="text-white font-semibold">{{ filter }}</span>
+          <input type="radio" v-model="selectedTeam" :value="team" class="hidden" />
+          <span class="text-white font-semibold">{{ team }}</span>
         </label>
       </div>
     </div>
 
     <!-- Карточки участников -->
-    <div class="px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pb-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
       <div
         v-for="member in filteredMembers"
         :key="member.id"
-        class="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl shadow-lg hover:scale-[1.03] overflow-hidden hover:shadow-purple-500/40 transition-all duration-500 ease-in-out"
+        class="relative flex flex-col items-center bg-gradient-to-b from-gray-800 to-gray-900 p-4 rounded-2xl shadow-lg border border-gray-700 hover:border-purple-500 transform hover:scale-105 transition-all duration-500 ease-in-out group"
       >
-        <div class="relative group">
+        <!-- Изображение -->
+        <div class="relative overflow-hidden rounded-xl mb-4 border border-gray-700 w-56 h-56">
           <img
             :src="member.image"
             :alt="member.name"
-            class="w-full h-64 object-cover rounded-t-2xl transition-transform duration-500 group-hover:scale-105"
+            class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-110"
           />
+
+          <!-- Описание при наведении -->
           <div
-            class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center p-4 transition-all duration-500"
+            class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 flex items-center justify-center p-4 transition-all duration-500"
           >
-            <p class="text-gray-300 text-center text-sm leading-relaxed">{{ member.description }}</p>
+            <p class="text-gray-300 text-center text-sm leading-relaxed">
+              {{ member.description }}
+            </p>
           </div>
         </div>
-        <div class="p-4 text-center">
-          <h3 class="text-xl font-bold mb-1">{{ member.name }}</h3>
-          <p class="text-sm text-gray-400">{{ member.role }}</p>
-        </div>
+
+        <!-- Имя и роль -->
+        <p class="text-xl font-semibold text-gray-100">{{ member.name }}</p>
+        <p class="text-sm text-gray-400">{{ member.team }}</p>
       </div>
     </div>
 
-    <!-- Нет участников -->
+    <!-- Если нет участников -->
     <div v-if="filteredMembers.length === 0" class="text-center py-8 text-gray-400">
-      <p class="text-lg">No team members found</p>
+      <p class="text-lg">No members found</p>
     </div>
   </div>
 </template>
@@ -70,9 +72,8 @@ interface Member {
   id: number
   name: string
   image: string
-  role: string
-  description: string
   team: string
+  description: string
 }
 
 const members = reactive<Member[]>([
@@ -80,60 +81,51 @@ const members = reactive<Member[]>([
     id: 1,
     name: 'Ghoul',
     image: '/zxc.gif',
-    role: 'Leader',
-    description: 'Cold and silent, but strategic — leads the team to victory.',
-    team: 'Main'
+    team: 'Main',
+    description: 'Silent leader. Cold, calm, and tactical — always stays in control.'
   },
   {
     id: 2,
     name: 'Mirai',
     image: '/mirai.gif',
-    role: 'Designer',
-    description: 'Brings chaos and creativity to every project.',
-    team: 'Art'
+    team: 'Art',
+    description: 'Creative mind who turns chaos into style and vision.'
   },
   {
     id: 3,
     name: 'Ken',
     image: '/ken.gif',
-    role: 'Developer',
-    description: 'Writes code faster than you can blink.',
-    team: 'Tech'
+    team: 'Tech',
+    description: 'Code machine. Writes scripts faster than lightning.'
   },
   {
     id: 4,
     name: 'Rei',
     image: '/rei.gif',
-    role: 'Analyst',
-    description: 'Sees every move before it happens.',
-    team: 'Main'
+    team: 'Main',
+    description: 'Analyst and strategist — always sees two steps ahead.'
   },
   {
     id: 5,
     name: 'Luna',
     image: '/luna.gif',
-    role: 'PR Manager',
-    description: 'Voice of ZXC — calm but deadly.',
-    team: 'Media'
+    team: 'Media',
+    description: 'Voice of ZXC Company. Calm energy, strong presence.'
   }
 ])
 
-const filters = ['All', 'Main', 'Tech', 'Art', 'Media']
-const selectedFilter = ref('All')
+const teams = ['All', 'Main', 'Tech', 'Art', 'Media']
+const selectedTeam = ref('All')
 
 const filteredMembers = computed(() => {
-  if (selectedFilter.value === 'All') return members
-  return members.filter(member => member.team === selectedFilter.value)
+  if (selectedTeam.value === 'All') return members
+  return members.filter(member => member.team === selectedTeam.value)
 })
 </script>
 
 <style scoped>
-input[type="radio"] {
-  @apply w-4 h-4;
-}
-
-img {
-  @apply rounded-xl;
+h1 {
+  text-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
 }
 </style>
 
